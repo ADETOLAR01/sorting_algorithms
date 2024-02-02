@@ -64,26 +64,27 @@ void countSort(int *arr, size_t n, int exp, int *output)
 */
 void radix_sort(int *array, size_t size)
 {
-	/* Find the maximum number to know number of digits */
+	/* Find the maximum number to know number of digits 
+	 */
 	int exp, maximum = 0;
-	int *output = '\0'; /* output array should be n(size) */
+	int *output = NULL; /* output array should be n(size) */
 
-	if (array == '\0' || size < 2)
+	if (array == NULL || size < 2)
 		return;
 
 	maximum = getMax(array, size);
 	output = malloc(size * sizeof(int));
-	if (output == '\0')
+	if (output == NULL)
 		return;
 	/*
-	* Do counting sort for every digit. Note that instead
-    * of passing digit number, exp is passed. exp is 10^i
-    * where i is current digit number
-	*/
+	 * Do counting sort for every digit. Note that instead
+	 * of passing digit number, exp is passed. exp is 10^i
+	 * where i is current digit number
+	 */
 	for (exp = 1; maximum / exp > 0; exp *= 10)
 	{
-		countSort(array, size, exp, output);
+		countsort(array, size, exp, output);
 		print_array(array, size);
 	}
 	free(output);
-}
+}	

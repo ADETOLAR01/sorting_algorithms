@@ -112,4 +112,3 @@ void sort_deck(deck_node_t **deck)
 {
 	insertion_sort_deck(deck);
 }
-
